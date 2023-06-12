@@ -1,2 +1,2 @@
-# PT-CJR
-CJR -- Projeto Trainee -- Grupo 1
+# Projeto Trainee -- CJR
+## Grupo 1
