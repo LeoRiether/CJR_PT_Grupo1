@@ -25,8 +25,11 @@ main {
     margin: 0;
 }
 
-.bubble {
+.inline-block {
     display: inline-block;
+}
+
+.bubble {
     background: #D9D9D9;
     border-radius: 16px;
 }
@@ -38,4 +41,8 @@ main {
     margin-bottom: 4px;
     margin-left: 1.5em;
     margin-right: 1.5em;
+}
+
+input {
+    font-size: 2em;    
 }
