@@ -11,13 +11,38 @@ nav {
     background-color: #8bc34a;
     height: 5em;
     width: 100vw; /* viewport */
+    max-width: 100%;
+    padding: 1.25em;
 }
 
 main {
     background-color: #111e3e;
     height: 100vh;
     width: 100vw;
+    max-width: 100%;
 }
 .no-margin {
     margin: 0;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.bubble {
+    background-color: #D9D9D9;
+    border-radius: 16px;
+}
+
+.cjr-logo {
+    display: block;
+    line-height: 0;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
+
+input {
+    font-size: 2em;
 }
