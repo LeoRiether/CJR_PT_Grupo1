@@ -9,6 +9,8 @@ nav {
     width: 100vw;
     max-width: 100%;
     padding: 1.5em;
+    
+
 
 }
 
@@ -17,7 +19,7 @@ main {
     height: 100vh;
     width: 100vw;
     max-width: 100%;
-    padding: 1.5em;
+    padding: 1.5em; 
 }
 
 .no-margin {
@@ -33,6 +35,8 @@ main {
 
 .chiclete {
     margin-left: 88em;
+    height: 3em;
+    width: 92px;
 
 }
 
@@ -60,7 +64,7 @@ main {
     margin-bottom: 8px;
     margin-left: 0;
     margin-right: 1.5em;
-    
+    padding: 0;
 }
 
 .hey {
@@ -68,3 +72,27 @@ main {
     
 }
 
+.hello {
+    background-color: #222E50;
+    
+}
+
+.input1 {
+    width: 401px;
+    height: 66px;
+    border-radius: 15px;
+    margin-top: 0;
+    margin-left:70em;
+    padding: 0;
+
+}
+
+.input2 {
+    width: 401px;
+    height: 66px;
+    border-radius: 15px;
+    margin-top: 0;
+    margin-left:70em;
+    padding: 0;
+
+}
