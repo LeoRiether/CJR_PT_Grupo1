@@ -7,6 +7,7 @@ body {
 }
 
 nav {
+    display: flex;
     background: #8BC34A;
     height: 5em;
     width: 100vw; /* viewport */
@@ -45,4 +46,72 @@ main {
 
 input {
     font-size: 2em;    
+}
+
+.p-08 {
+    padding: 0.8em;
+}
+
+.no-underline {
+    text-decoration: none;
+}
+
+.blue-button {
+    background: #111E3E;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 16px;
+    font-size: 1em;
+}
+
+.two-columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.register-card {
+    padding: 2em 4em;
+    border-radius: 16px;
+    background: #222E50;
+}
+
+.register-card input, .register-card img, .register-card p {
+    margin-bottom: 1.2em;
+}
+
+.register-card input {
+    display: block;
+    width: 24em;
+    border: none;
+    border-radius: 16px;
+    font-size: 1em;
+    padding: 0.9em;
+}
+
+.register-card p, .register-card a {
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.register-card button[type=submit] {
+    display: block;
+    margin: 0 auto;
+    border-radius: 16px;
+    border: none;
+    font-size: 1em;
+    padding: 0.9em;
+    width: 80%;
+    text-align: center;
+}
+
+.flex-center-y {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user-img {
+    display: block;
+    margin: 0 auto;
 }
