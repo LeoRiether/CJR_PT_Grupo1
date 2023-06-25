@@ -118,7 +118,9 @@ main {
 .quadrado {
     display:inline-block;
     vertical-align: middle;
-    margin: 2em;
+    margin-left: 3.5em;
+    margin-top: 2em;
+    margin-right: 1.5em;
 }
 
 .retangulo {
