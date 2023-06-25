@@ -124,5 +124,11 @@ main {
 .retangulo {
     display: inline-block;
     vertical-align: middle;
-    
+    margin-left: 8em;
+}
+
+.conta{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 3.5em;
 }
