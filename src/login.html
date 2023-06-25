@@ -1,31 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twitter CJR - Tela de login</title>
-    <link rel="stylesheet" href="css/ricardo-login.css">
-
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <!-- fontawesome cdn for icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />  
+  <link rel="stylesheet" href="css/ricardo-login.css">
 </head>
 <body>
-    
-    <nav>
-        <div class ="bubble">
-            <img class= "logo-cjr"  src="../img/cjr.png" alt="Logo da CJR">
-        </div>
-        
-        <div class="entrar" >
-            <a href= "C:\Users\Arlene Cristina\CJR_PT_Grupo1\src\login.html"><button style= "background-color: #222E50; border-radius: 16px; padding: 15 px; margin-bottom: 15 em; cursor: pointer; color: #fff; border: none; font-size: 16px;">Entrar</button></a>
-        </div>
 
-        <div class="criar">
-            <a href="C:\Users\Arlene Cristina\CJR_PT_Grupo1\src\cadastro.html"><button style="background-color: #8BC34A; border-radius: 16 px; padding: 15 px; margin-bottom: 15em; cursor: pointer; color: #222E50; border: none; font-size: 16px;">Criar Conta</button></a>
-    </nav>
+  <header class="header-bg">
+    <div class="header">
+      <a href="./">
+        <img src="img/Logo.png" alt="CJR">
+      </a>
+      <nav>
+        <ul class="header-menu">
+          <li class="tipo-A"><a href="./cadastro.html">Criar Conta</a></li>    
+          <li class="tipo-B"><a href="#">Entrar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <main>
+<div class="container">
+ 
+  <!-- início tela-login, formulário  -->
+  <div class="tela-login">
+    <div class="imagem-usuario">
+      <img src="img/ph_user-circle-thin.png" width="116" height="110">
+    </div>
+    <!-- formulário -->
+    <form action="">
+ 
+      <div class="formulario-input">
+        <span><i class="fas fa-user"></i></span>
+        <input type="text" placeholder="Login">
+      </div>
+      <div class="formulario-input">
+        <span><i class="fas fa-lock"></i></span> 
+        <input type="password" placeholder="Senha">
+      </div>
+      <div class="esqueceu-senha">
+        <p><a href="./recuperacao.html">Esqueceu a senha?</a></p>
+      </div>
+      <div class="formulario-entrar submit-btn">
+        <input type="submit" value="Entrar">
+      </div>
+    </form>
+  </div>
 
-
-    </main>
+</div>
 
 </body>
 </html>
