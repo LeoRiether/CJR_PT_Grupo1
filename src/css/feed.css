@@ -25,10 +25,6 @@ main {
     min-height: 100vh;
 }
 
-.hidden {
-    display: none;
-}
-
 .no-margin {
     margin: 0;
 }
@@ -111,3 +107,8 @@ main {
     outline: none;
     padding: 1em;
 }
+
+.hidden {
+    display: none;
+}
+
