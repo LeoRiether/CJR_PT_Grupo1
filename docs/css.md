@@ -1,5 +1,7 @@
 # CSS
 
+- Link legal: https://www.w3schools.com/
+
 ## Propriedades CSS
 - width
 - height
