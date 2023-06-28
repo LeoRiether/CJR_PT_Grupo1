@@ -25,6 +25,10 @@ main {
     min-height: 100vh;
 }
 
+.hidden {
+    display: none;
+}
+
 .no-margin {
     margin: 0;
 }
