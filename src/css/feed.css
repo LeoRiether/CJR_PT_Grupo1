@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+nav {
+    display: flex;
+    background: #8BC34A;
+    width: 100vw; /* viewport */
+    max-width: 100%;
+    padding: 1.25em;
+}
+
+main {
+    background: #111E3E;
+    width: 100vw;
+    max-width: 100%;
+    /* # flex-grow: 1; */
+    min-height: 100vh;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.bubble {
+    background: #D9D9D9;
+    border-radius: 16px;
+}
+
+.cjr-logo {
+    display: block;
+    line-height: 0;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
+
+.no-underline {
+    text-decoration: none;
+}
+
+.blue-button {
+    background: #111E3E;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 16px;
+    font-size: 1em;
+}
+
+.two-columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.posts {
+    max-width: 850px;
+    background: #222E50;
+}
+
+.data {
+    color: #71767B;
+}
+
+.modal {
+    display: grid;
+    position: fixed; /* posição fixa independentemente do scroll! */
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal > aside {
+    display: flex;
+    margin: auto;
+    background: #111E3E;   
+    max-width: 1024px;
+    padding: 3em;
+    border-radius: 16px;
+}
+
+.modal .textarea-wrapper {
+    width: 100%;
+    border-radius: 16px;
+    background: #222E50;
+}
+
+.modal textarea {
+    width: 100%;
+    resize: none;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    outline: none;
+    padding: 1em;
+}
