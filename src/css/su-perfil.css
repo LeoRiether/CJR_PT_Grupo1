@@ -23,12 +23,11 @@ nav{
 }
 
 main {
-    background-color: #111E3E;
-    height: 100vh;
+    background: #111E3E;
     width: 100vw;
     max-width: 100%;
-    padding: 1.5em; 
-    display: grid;
+    /* # flex-grow: 1; */
+    min-height: 100vh;
 }
 .bubble {
     background-color: #D9D9D9;
@@ -59,4 +58,47 @@ margin-top: 0;
 
 .logout {
     margin-left: 1em;
+}
+
+.two-columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.posts {
+    max-width: 850px;
+}
+
+
+
+.topo_posts {
+    background-color: #222E50;
+    height: 151px;
+    width: 646px;
+}
+
+.foto{
+    position:relative;
+    display: inline;
+}
+
+.baixo_posts{
+    background-color: #111E3E;
+    width: 646px;
+    max-width: fit-content;
+
+}
+
+.botao{
+    display: inline;
+}
+
+.inline{
+    display: inline;
+}
+
+.publicacao{
+    color: #D9D9D9;
+    font-family: Arial, Helvetica, sans-serif;
 }
