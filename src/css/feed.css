@@ -112,3 +112,17 @@ main {
     display: none;
 }
 
+.foto-perfil {
+    border-radius: 50%;
+}
+
+.nome {
+
+    color:white
+}
+
+.two-columns {
+    border: 30px;
+    color: white
+
+}
