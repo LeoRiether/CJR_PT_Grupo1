@@ -82,8 +82,9 @@ main {
     background: rgba(0, 0, 0, 0.5);
 }
 
-.modal > aside {
+.modal aside {
     display: flex;
+    flex-direction: column;
     margin: auto;
     background: #111E3E;   
     max-width: 1024px;
@@ -91,10 +92,17 @@ main {
     border-radius: 16px;
 }
 
+.modal h1 {
+    margin: 0 0 1.5em 0;
+    color: white;
+}
+
 .modal .textarea-wrapper {
+    color: white;
     width: 100%;
     border-radius: 16px;
     background: #222E50;
+    padding: 1em;
 }
 
 .modal textarea {
@@ -105,7 +113,46 @@ main {
     color: white;
     font-size: 1.5em;
     outline: none;
+}
+
+.modal .textarea-controls {
+    position: relative;
+    margin-bottom: 1em;
+}
+
+.modal .line {
+    position: relative;
+    left: -1em;
+    width: calc(100% + 2em);
+    height: 1px;
+    background: rgba(255, 255, 255, 0.5);
+    margin-bottom: 1em;
+}
+
+.modal .textarea-controls span {
+    cursor: pointer;
+    font-size: 1.25em;
+    padding: 0.2em;
+}
+
+.modal .modal-buttons {
+    display: flex;
+    justify-content: end;
+    margin-top: 1em;
+}
+
+.modal .modal-buttons button {
+    background: transparent;
     padding: 1em;
+    color: white;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.modal .modal-buttons .publish {
+    border-radius: 16px;
+    background: #8BC34A;
 }
 
 .hidden {
@@ -117,12 +164,11 @@ main {
 }
 
 .nome {
-
-    color:white
+    color:white;
 }
 
 .two-columns {
     border: 30px;
-    color: white
-
+    color: white;
 }
+
