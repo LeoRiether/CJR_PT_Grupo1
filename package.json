@@ -18,5 +18,8 @@
   "homepage": "https://github.com/LeoRiether/CJR_PT_Grupo1#readme",
   "devDependencies": {
     "http-server": "^14.1.1"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
   }
 }
