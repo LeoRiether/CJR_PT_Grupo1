@@ -68,6 +68,7 @@ margin-top: 0;
 
 .posts {
     max-width: 850px;
+    position: relative;
 }
 
 
@@ -76,11 +77,16 @@ margin-top: 0;
     background-color: #222E50;
     height: 151px;
     width: 646px;
+    
 }
 
 .foto{
-    position:relative;
+    
     display: inline;
+    top: 10em;
+    border-radius: 50%;
+    width: 150px;
+    margin-top: -5em;
 }
 
 .baixo_posts{
@@ -92,13 +98,60 @@ margin-top: 0;
 
 .botao{
     display: inline;
+    position: absolute;
+    right: 1.5em;
+    top: 10em;
 }
 
-.inline{
-    display: inline;
-}
+
 
 .publicacao{
     color: #D9D9D9;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.nome {
+    color: #D9D9D9;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    margin: 0%;
+}
+.lugar{
+
+}
+.lugar2{
+    display: inline-block;
+    color: #D9D9D9;
+
+}
+.email2{
+    color: #D9D9D9;
+}
+
+.lugar_{
+    display:block
+}
+.email_{
+    display: block;
+}
+.perfil {
+    margin-left: 2.5em;
+}
+.twittes {
+    border-radius: 2em;
+    display: grid;
+    height: 182px;
+    width: 630px;
+    background-color: #222E50;
+
+}
+.perfilpost{
+    border-radius: 100%;
+    display: inline-block;
+}
+.nomeusuario2{
+display: inline-block;
+}
+.inline{
+    display: inline;
 }
