@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Twitter CJR - Cadastro</title>
     <link rel="stylesheet" href="css/feed.css">
-    <script defer src="https://friconix.com/cdn/friconix.js"> </script>
+
+    <!-- SimpleMDE -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
 </head>
 
 <body>
@@ -61,29 +63,25 @@
 
     </main>
 
-    <div class="modal hidden">
+    <div class="comment-modal modal hidden">
         <aside>
             <h1>Novo comentário</h1>
             <div class="textarea-wrapper">
-                <div class="textarea-controls">
-                    <i class="fi-xnsuxl-bold"></i>
-                    <i class="fi-xwluxl-italic-wide"></i>
-                    <i class="fi-xnluxl-underline"></i>
-                    <i class="fi-xwsuxl-link-solid" style="margin-left: 1em;"></i>
-                    <i class="fi-xnsuxl-image-solid"></i>
-                    <i class="fi-cnsuxl-question-mark"></i>
-                </div>
-                <div class="line"></div>
-                <textarea cols="120" rows="10"></textarea>
+                <textarea></textarea>
             </div>
-
             <div class="modal-buttons">
-                <span class="character-count">123</span>
                 <button class="cancel">Cancelar</button>
                 <button class="publish">Publicar</button>
             </div>
         </aside>
     </div>
+
+    <!-- SimpleMDE -->
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <script>
+        let element = document.querySelector('.comment-modal textarea');
+        let simplemde = new SimpleMDE({ element });
+    </script>
 
 </body>
 
