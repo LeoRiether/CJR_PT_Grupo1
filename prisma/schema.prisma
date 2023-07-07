@@ -10,7 +10,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// sim, 1 pra todo mundo :D
+// TODO: relacionar com posts e comentários, quando estes existirem
 model User {
-  id String
+    id Int @id @default(autoincrement())
+    username String @unique
+    senha String
+    gender String @db.Char(5)
+    email String @unique
+    cargo String
+    admin Boolean? @default(false)
+    createdAt DateTime @default(now())
 }
+
