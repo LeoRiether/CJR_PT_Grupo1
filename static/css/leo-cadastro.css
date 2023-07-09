@@ -18,11 +18,10 @@ nav {
 }
 
 main {
+    flex-grow: 1;
     background: #111E3E;
     width: 100vw;
     max-width: 100%;
-    /* # flex-grow: 1; */
-    min-height: 100vh;
 }
 
 .no-margin {

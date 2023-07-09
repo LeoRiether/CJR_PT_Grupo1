@@ -5,25 +5,36 @@
 
 
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     margin: 0;
 }
-
 
 nav {
     display: flex;
     background: #8BC34A;
-    height: 5em;
     width: 100vw; /* viewport */
     max-width: 100%;
     padding: 1.25em;
-    
+}
 
+.cjr-logo {
+    display: block;
+    line-height: 0;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
 
+.no-underline {
+    text-decoration: none;
 }
 
 main {
+    flex-grow: 1;
     background-color: #111E3E;
-    height: 100vh;
     width: 100vw;
     max-width: 100%;
     padding: 1.5em; 

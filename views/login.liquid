@@ -10,48 +10,59 @@
 </head>
 <body>
 
-  <header class="header-bg">
-    <div class="header">
-      <a href="./">
-        <img src="../img/Logo.png" alt="CJR">
-      </a>
-      <nav>
-        <ul class="header-menu">
-          <li class="tipo-A"><a href="cadastro">Criar Conta</a></li>    
-          <li class="tipo-B"><a href="#">Entrar</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <nav>
+      <div class="bubble inline-block">
+        <img
+          class="cjr-logo"
+          src="img/cjr.png"
+          alt="Logo da CJR">
+      </div>
 
-<div class="container">
- 
-  <!-- início tela-login, formulário  -->
-  <div class="tela-login">
-    <div class="imagem-usuario">
-      <img src="../img/ph_user-circle-thin.png" width="116">
-    </div>
-    <!-- formulário -->
-    <form action="">
- 
-      <div class="formulario-input">
-        <span><i class="fas fa-user"></i></span>
-        <input type="text" placeholder="Login">
-      </div>
-      <div class="formulario-input">
-        <span><i class="fas fa-lock"></i></span> 
-        <input type="password" placeholder="Senha">
-      </div>
-      <div class="esqueceu-senha">
-        <p><a href="recuperacao">Esqueceu a senha?</a></p>
-      </div>
-      <div class="formulario-entrar submit-btn">
-        <input type="submit" value="Entrar">
-      </div>
-    </form>
-  </div>
+      <div style="flex-grow: 1;"></div>
 
-</div>
+      <div class="inline-block">
+        <a class="no-underline" href="cadastro">
+          <button style="background:#8BC34A; border-radius: 16px; padding: 12px; cursor: pointer; color:#222E50; border: none; font-size: 16px;">Criar
+            Conta</button>
+        </a>
+
+        <a class="no-underline" href="login">
+          <button style="background:#222E50; border-radius: 16px; padding: 12px; cursor: pointer; color: #fff; border: none; font-size: 16px;">Entrar</button>
+        </a>
+
+      </div>
+    </nav>
+
+    <main>
+        <div class="container">
+
+            <!-- início tela-login, formulário  -->
+            <div class="tela-login">
+                <div class="imagem-usuario">
+                    <img src="../img/ph_user-circle-thin.png" width="116">
+                </div>
+                <!-- formulário -->
+                <form action="">
+
+                    <div class="formulario-input">
+                        <span><i class="fas fa-user"></i></span>
+                        <input type="text" placeholder="Login">
+                    </div>
+                    <div class="formulario-input">
+                        <span><i class="fas fa-lock"></i></span> 
+                        <input type="password" placeholder="Senha">
+                    </div>
+                    <div class="esqueceu-senha">
+                        <p><a href="recuperacao">Esqueceu a senha?</a></p>
+                    </div>
+                    <div class="formulario-entrar submit-btn">
+                        <input type="submit" value="Entrar">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </main>
 
 </body>
 </html>
