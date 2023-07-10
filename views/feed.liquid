@@ -1,88 +1,77 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twitter CJR - Cadastro</title>
-    <link rel="stylesheet" href="css/feed.css">
-
-    <!-- SimpleMDE -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-</head>
-
-<body>
-
-    <nav>
-        <div class="bubble inline-block">
-            <img class="cjr-logo" src="../img/cjr.png" alt="Logo da CJR">
-        </div>
-
-        <div style="flex-grow: 1;"></div>
-
-        <div class="inline-block">
-            <a class="no-underline" href="cadastro">
-                <button
-                    style="background:#8BC34A; border-radius: 16px; padding: 12px; cursor: pointer; color:#222E50; border: none; font-size: 16px;">Criar
-                    Conta</button>
-            </a>
-
-            <a class="no-underline" href="login">
-                <button
-                    style="background:#222E50; border-radius: 16px; padding: 12px; cursor: pointer; color: #fff; border: none; font-size: 16px;">Entrar</button>
-            </a>
-
-        </div>
-    </nav>
-
-    <main class="two-columns">
-
-        <section class="posts">
-            
-            <article class="post">
-                <img src="../img/foto-perfil.png" alt="Imagem de perfil" class="foto-perfil">
-                <span class="nome">Joazin gamer</span>
-                <span class="data">· 28 de junho</span>
-                <span class="texto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia praesentium sequi quaerat error unde temporibus aut est minus! Dolorum voluptatum nihil quam doloremque libero iure necessitatibus in, est ullam minus.</span>
-            </article>
-            <article class="post">
-                <img src="../img/foto-perfil.png" alt="Imagem de perfil" class="foto-perfil">
-                <span class="nome">Joazin gamer</span>
-                <span class="data">· 28 de junho</span>
-                <span class="texto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia praesentium sequi quaerat error unde temporibus aut est minus! Dolorum voluptatum nihil quam doloremque libero iure necessitatibus in, est ullam minus.</span>
-            </article>
-            <article class="post">
-                <img src="../img/foto-perfil.png" alt="Imagem de perfil" class="foto-perfil">
-                <span class="nome">Joazin gamer</span>
-                <span class="data">· 28 de junho</span>
-                <span class="texto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia praesentium sequi quaerat error unde temporibus aut est minus! Dolorum voluptatum nihil quam doloremque libero iure necessitatibus in, est ullam minus.</span>
-            </article>
-            
-
-        </section>
-
-    </main>
-
-    <div class="comment-modal modal hidden">
-        <aside>
-            <h1>Novo comentário</h1>
-            <div class="textarea-wrapper">
-                <textarea></textarea>
+<!DOCTYPE html> 
+<html lang="pt-br"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Feed</title>         
+        <!-- fontawesome cdn for icon -->         
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css"/> 
+        <link rel="stylesheet" href="css/ricardo-login.css"> 
+    </head>     
+    <body> 
+        <header class="header-bg"> 
+            <div class="header"> <a href="./"> <img src="img/Logo.png" alt="CJR"> </a> 
+                <nav> 
+                    <ul class="header-menu"> 
+                        <li class="tipo-A">
+                            <a href="./cadastro.html">Criar Conta</a>
+                        </li>                         
+                        <li class="tipo-B">
+                            <a href="#">Entrar</a>
+                        </li>                         
+                    </ul>                     
+                </nav>                 
+            </div>             
+        </header>         
+        <div class="container-feed"> 
+            <div class="box-feed"> 
+                <div class="box-header Flex">
+                    <img class="imagem" src="./img/usuario.png" alt="imagem de perfil">
+                    <p>Joazin gamer . <span style="color: #676D75"> 17 de mar</span></p>
+                </div>
+                <div class="texto"> 
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin.</p> 
+                </div>
+                <div class="comentario">
+                    <img src="./img/comentario_18x18.png">
+                </div>                 
             </div>
-            <div class="modal-buttons">
-                <button class="cancel">Cancelar</button>
-                <button class="publish">Publicar</button>
+            <div class="box-feed"> 
+                <div class="box-header Flex">
+                    <img class="imagem" src="./img/usuario.png" alt="imagem de perfil">
+                    <p>Joazin gamer . <span style="color: #676D75"> 17 de mar</span></p>
+                </div>
+                <div class="texto"> 
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin.</p> 
+                </div>
+                <div class="comentario">
+                    <img src="./img/comentario_18x18.png">
+                </div>                 
             </div>
-        </aside>
-    </div>
-
-    <!-- SimpleMDE -->
-    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
-    <script>
-        let element = document.querySelector('.comment-modal textarea');
-        let simplemde = new SimpleMDE({ element });
-    </script>
-
-</body>
-
+            <div class="box-feed"> 
+                <div class="box-header Flex">
+                    <img class="imagem" src="./img/usuario.png" alt="imagem de perfil">
+                    <p>Joazin gamer . <span style="color: #676D75"> 17 de mar</span></p>
+                </div>
+                <div class="texto"> 
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin.</p> 
+                </div>
+                <div class="comentario">
+                    <img src="./img/comentario_18x18.png">
+                </div>                 
+            </div>                        
+            <div class="box-feed"> 
+                <div class="box-header Flex">
+                    <img class="imagem" src="./img/usuario.png" alt="imagem de perfil">
+                    <p>Joazin gamer . <span style="color: #676D75"> 17 de mar</span></p>
+                </div>
+                <div class="texto"> 
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin.</p> 
+                </div>
+                <div class="comentario">
+                    <img src="./img/comentario_18x18.png">
+                </div>                 
+            </div>
+        </div>         
+    </body>     
 </html>
