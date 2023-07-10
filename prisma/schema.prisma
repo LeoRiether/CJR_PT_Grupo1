@@ -10,34 +10,42 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// TODO: relacionar com posts e comentários, quando estes existirem
+enum Role {
+  USER
+  ADMIN
+}
+
 model User {
     id Int @id @default(autoincrement())
     username String @unique
     senha String
     gender String @db.Char(5)
     email String @unique
-    cargo String
+    cargo Role
     admin Boolean? @default(false)
     createdAt DateTime @default(now())
+
+    posts Post[]
+    comments Comment[]
 }
 
 model Post {
-  post_id   Int      @id @default(autoincrement())
-  user_id   String   
+  id        Int      @id @default(autoincrement())
+  user_id   Int   
   content   String   @db.VarChar(250)
   updated_at DateTime  @default(now())
   created_at DateTime  @default(now())
-}
 
-enum Role {
-  USER
-  ADMIN
+  comments Comment[]
+  user User @relation(fields: [user_id], references: [id])
 }
 
 model Comment {
   id      Int    @id @default(autoincrement())
   post_id Int
-  user_id String @db.Varchar(50)
-  content String @db.Varchar(100)
+  user_id Int
+  content String @db.VarChar(100)
+
+  user User @relation(fields: [user_id], references: [id])
+  post Post @relation(fields: [post_id], references: [id])
 }
