@@ -22,8 +22,6 @@ model User {
     createdAt DateTime @default(now())
 }
 
-
-
 model Post {
   post_id   Int      @id @default(autoincrement())
   user_id   String   
@@ -37,3 +35,9 @@ enum Role {
   ADMIN
 }
 
+model Comment {
+  id      Int    @id @default(autoincrement())
+  post_id Int
+  user_id String @db.Varchar(50)
+  content String @db.Varchar(100)
+}
