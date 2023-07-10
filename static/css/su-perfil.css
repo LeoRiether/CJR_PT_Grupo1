@@ -13,7 +13,16 @@ nav{
     
 }
 
-.logo-cjr {
+.inline-block {
+    display: inline-block;
+}
+
+.bubble {
+    background: #D9D9D9;
+    border-radius: 16px;
+}
+
+.cjr-logo {
     display: block;
     line-height: 0;
     margin-top: 4px;
@@ -29,12 +38,10 @@ main {
     /* # flex-grow: 1; */
     min-height: 100vh;
 }
-.bubble {
-    background-color: #D9D9D9;
-    border-radius: 16px; 
+
     
     
-}
+
 .no-margin {
     margin: 0
 }
@@ -140,7 +147,6 @@ margin-top: 0;
 .twittes {
     border-radius: 2em;
     display: grid;
-    height: 182px;
     width: 630px;
     background-color: #222E50;
 
@@ -149,6 +155,7 @@ margin-top: 0;
     border-radius: 100%;
     display: inline-block;
     height: 48px;
+    vertical-align: middle;
     
 
 }
@@ -159,6 +166,7 @@ display: inline-block;
     display: inline-block;
     margin-left: 1.5em;
     margin-top: 1em;
+    
 }
 .data{
     color: grey;
@@ -177,4 +185,13 @@ display: inline-block;
 .escrtito_{
     color: #FFFFFF;
 
+}
+.espaco {
+    margin: 0.85em;
+}
+
+.img_postada {
+    vertical-align: middle;
+    margin-left: 4em;
+    
 }

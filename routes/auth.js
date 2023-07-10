@@ -10,4 +10,17 @@ router.get('/cadastro', (req, res) => {
 
 // TODO: rota de recuperação de senha
 
-module.exports = router;
+
+
+router.get('/recuperacao', (req, res) => {
+    res.render('recuperacao');
+});
+
+
+// TODO: rota de perfil
+
+
+router.get('/perfil', (req, res) => {
+    res.render('perfil');
+});
+module.exports = router; 
