@@ -7,6 +7,10 @@ router.get('/cadastro', (req, res) => {
 });
 
 // TODO: rota de login
+router.get('/login', (req, res) => {
+    res.render('login');
+});
+
 
 // TODO: rota de recuperação de senha
 
