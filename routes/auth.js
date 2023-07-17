@@ -5,7 +5,18 @@ const router = express.Router();
 router.get('/cadastro', (req, res) => {
     res.render('cadastro');
 });
-
+router.post('/cadastro', async (req, res) => {
+    const user = await prisma.user.create({
+        data: {
+          email: req.body.email,
+          username: req.body.username,
+          senha: req.body.password,
+          gender: req.body.genero,
+          cargo: req.body.cargo,
+          },
+        },
+    )}
+);
 // TODO: rota de login
 router.get('/login', (req, res) => {
     res.render('login');
@@ -30,8 +41,5 @@ router.get('/perfil', (req, res) => {
 module.exports = router; 
 
 
-// TODO: rota de logado feed
-router.get('/logfeed', (req, res) => {
-    res.render('logfeed');
-});
+
 
