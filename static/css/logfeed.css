@@ -1,0 +1,234 @@
+*{
+    box-sizing: border-box;
+}
+
+
+nav{
+    display: flex;
+    background: #8BC34A;
+    height: 5em;
+    width: 100vw; /* viewport */
+    max-width: 100%;
+    padding: 1.25em;
+    
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.bubble {
+    background: #D9D9D9;
+    border-radius: 16px;
+}
+
+.cjr-logo {
+    display: block;
+    line-height: 0;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
+
+main {
+    background: #111E3E;
+    width: 100vw;
+    max-width: 100%;
+    /* # flex-grow: 1; */
+    min-height: 100vh;
+}
+
+    
+    
+
+.no-margin {
+    margin: 0
+}
+
+.inline {
+    display: inline-block;
+}
+
+body {
+    margin: 0;
+}
+
+.fotoperfil {
+width: 60px;
+border-radius: 50%;
+display: inline-block;
+margin-left: 0.5em;
+margin-top: 0;
+
+}
+
+.logout {
+    margin-left: 1em;
+}
+
+nav {
+    display: flex;
+    background: #8BC34A;
+    width: 100vw; /* viewport */
+    max-width: 100%;
+    padding: 1.25em;
+}
+
+main {
+    background: #111E3E;
+    width: 100vw;
+    max-width: 100%;
+    /* # flex-grow: 1; */
+    min-height: 100vh;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.bubble {
+    background: #D9D9D9;
+    border-radius: 16px;
+}
+
+.cjr-logo {
+    display: block;
+    line-height: 0;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
+
+.no-underline {
+    text-decoration: none;
+}
+
+.blue-button {
+    background: #111E3E;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 16px;
+    font-size: 1em;
+}
+
+.two-columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.posts {
+    max-width: 850px;
+    background: #222E50;
+}
+
+.data {
+    color: #71767B;
+}
+
+.modal {
+    display: grid;
+    position: fixed; /* posição fixa independentemente do scroll! */
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal aside {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background: #111E3E;   
+    max-width: 1024px;
+    padding: 3em;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.modal h1 {
+    margin: 0 0 1.5em 0;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.modal .textarea-wrapper {
+    color: white;
+    width: calc(min(900px, 100vw - 6em));
+    border-radius: 16px;
+    background: #222E50;
+    padding: 1em;
+}
+
+.modal textarea, .modal .CodeMirror {
+    width: 100%;
+    resize: none;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1em;
+    outline: none;
+}
+
+.modal .CodeMirror-cursor {
+    border-color: white;
+}
+
+.modal .editor-toolbar {
+    border: none;
+}
+
+.modal .editor-toolbar a.fa {
+    color: white !important;
+}
+
+.modal .line {
+    position: relative;
+    left: -1em;
+    width: calc(100% + 2em);
+    height: 1px;
+    background: rgba(255, 255, 255, 0.5);
+    margin-bottom: 1em;
+}
+
+.modal .modal-buttons {
+    display: flex;
+    justify-content: end;
+    margin-top: 1em;
+}
+
+.modal .modal-buttons button {
+    background: transparent;
+    padding: 1em;
+    color: white;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.modal .modal-buttons .publish {
+    border-radius: 16px;
+    background: #8BC34A;
+}
+
+.hidden {
+    display: none;
+}
+
+.foto-perfil {
+    border-radius: 50%;
+}
+
+.nome {
+    color:white;
+}
+
+.two-columns {
+    border: 30px;
+    color: white;
+}
+

@@ -24,3 +24,10 @@ router.get('/perfil', (req, res) => {
     res.render('perfil');
 });
 module.exports = router; 
+
+
+// TODO: rota de logado feed
+router.get('/logfeed', (req, res) => {
+    res.render('logfeed');
+});
+
