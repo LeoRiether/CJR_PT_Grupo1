@@ -6,7 +6,11 @@
     <title>Feed</title>
     <!-- fontawesome cdn for icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
-    <link rel="stylesheet" href="css/ricardo-login.css">
+    <link rel="stylesheet" href="css/feed.css">
+
+    <!-- SimpleMDE -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+
   </head>
   <body>
     <header class="header-bg">
@@ -100,5 +104,26 @@
         </div>
       </div>
     </div>
+
+    <div class="comment-modal modal hidden">
+        <aside>
+            <h1>Novo comentário</h1>
+            <div class="textarea-wrapper">
+                <textarea></textarea>
+            </div>
+            <div class="modal-buttons">
+                <button class="cancel">Cancelar</button>
+                <button class="publish">Publicar</button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- SimpleMDE -->
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <script>
+        let element = document.querySelector('.comment-modal textarea');
+        let simplemde = new SimpleMDE({ element });
+    </script>
+
   </body>
 </html>

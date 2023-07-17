@@ -2,78 +2,209 @@
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-nav {
-    display: flex;
-    background: #8BC34A;
-    width: 100vw; /* viewport */
-    max-width: 100%;
-    padding: 1.25em;
-}
-
-main {
-    background: #111E3E;
-    width: 100vw;
-    max-width: 100%;
-    /* # flex-grow: 1; */
-    min-height: 100vh;
-}
-
-.no-margin {
-    margin: 0;
-}
-
-.inline-block {
-    display: inline-block;
-}
-
-.bubble {
-    background: #D9D9D9;
-    border-radius: 16px;
-}
-
-.cjr-logo {
-    display: block;
-    line-height: 0;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-left: 1.5em;
-    margin-right: 1.5em;
-}
-
-.no-underline {
+body{     /* fundo */
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica,sans-serif;
+    background: #111e3e;
+  }
+  
+  ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+  }
+  
+  a {
     text-decoration: none;
-}
-
-.blue-button {
-    background: #111E3E;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 16px;
-    font-size: 1em;
-}
-
-.two-columns {
+  }
+  .header-bg {
+    background-color: #8BC34A;
+  }
+  .header {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.posts {
-    max-width: 850px;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 15px 40px;
+    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+  
+  }
+  
+  .header-menu {
+    display: flex;
+    flex-wrap: warp;
+    gap: 10px;    /*distancia entre 'criar conta' e 'entrar'*/
+  }
+  
+  .tipo-A {
+    font-size: 16px;
+    line-height: 1.3;
+    padding: 10px 20px;
+    display: inline-block;
+  
+  }
+  .tipo-A a {
+    color: #111e3e;
+    font-weight: bold;
+  }
+  
+  .tipo-B {
+    font-size: 1.125rem;
+    font-size: 16px;
+    line-height: 1.3;
+    padding: 10px 20px;
+    text-decoration: none;
     background: #222E50;
-}
-
-.data {
-    color: #71767B;
-}
-
+    color: #fff; 
+    display: inline-block;
+    border-radius: 12px;
+  }
+  
+  .tipo-B a {
+    color: #fff; 
+  }
+  
+  .container{   /* centraliza */
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .box{
+    background: #222e50;
+    padding: 30px 50px;
+    border-radius: 10px;
+  }
+  
+  .imagem-usuario {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .formulario-titulo {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .formulario-titulo h1{
+    margin: 0px;
+    color: #0cd6a8;
+  }
+  
+  .formulario-input{
+    background: #71767B;
+    width: 270px;
+    border:1px hidden #c1c1c1;
+    display: flex;
+    margin-bottom: 30px;
+    border-radius: 10px;
+  }
+  .formulario-input i{
+    padding: 8px 16px;
+    color: #fff;
+    
+  }
+  .formulario-input input{
+    border:1px hidden;
+    padding-left: 20px;
+    width: 100%;
+    outline: none;
+    height: 35px;
+    font-size: 15px;
+    border-radius: 10px;
+  }
+  
+  .formulario-entrar input{
+    border:1px hidden;
+    padding-left: 20px;
+    width: 80%;
+    outline: none;
+    height: 35px;
+    font-size: 15px;
+    border-radius: 10px;
+  }
+  
+  .esqueceu-senha {
+    font-family: arial, verdana, sans-serif;
+    text-align: center;
+    font-size: 14px;
+  }
+  .esqueceu-senha a{
+    color: #fff;
+  }
+  
+  .submit-btn{
+    border:0px hidden #222e50;
+    margin-top: 25px;
+  }
+  
+  .submit-btn input{
+    background: #fff;
+    color: #000;
+    cursor: pointer; 
+    margin-left: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .container-feed {
+    max-width: 646px;
+    height: 942px;
+    margin: 0 auto;
+    padding: 6px;
+    border-left: 1px solid #7e7e7e;
+    border-right: 1px solid #7e7e7e;
+  }
+  
+  .box-feed{
+    background: #222e50;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 30px;
+  }
+  .box-header {
+    margin-top: 10px;
+  }
+  .Flex {
+    /* border: 1px solid #666; */
+    display: flex;
+    align-items: center;
+  }
+  /*
+  .area-imagem {
+    border: 1px solid #666;
+    background-image: url('../img/usuario.png'); 
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    padding: 25px;
+    
+  }  */
+  .imagem {
+    border-radius: 50%;
+    padding: 10px;
+  }
+  
+  .texto p {
+    /*border: 1px solid #666;*/
+    margin: 0px;
+    padding: 1px 20px 20px 70px;  /* top right bottom left */
+  }
+  
+  .span {
+    color: #0cd6a8;
+  }
+  .comentario {
+    margin: 0px;
+    padding: 1px 10px 10px 70px;
+  }
+  
+  .feed {
+    color: red;
+  }
+  
 .modal {
     display: grid;
     position: fixed; /* posição fixa independentemente do scroll! */
@@ -159,18 +290,5 @@ main {
 
 .hidden {
     display: none;
-}
-
-.foto-perfil {
-    border-radius: 50%;
-}
-
-.nome {
-    color:white;
-}
-
-.two-columns {
-    border: 30px;
-    color: white;
 }
 
