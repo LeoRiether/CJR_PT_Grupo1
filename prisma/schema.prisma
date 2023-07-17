@@ -21,7 +21,7 @@ model User {
     senha String
     gender String @db.Char(5)
     email String @unique
-    cargo Role
+    cargo String
     admin Boolean? @default(false)
     createdAt DateTime @default(now())
 
