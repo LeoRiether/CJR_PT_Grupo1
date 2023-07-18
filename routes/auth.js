@@ -18,10 +18,12 @@ router.post('/cadastro', async (req, res) => {
           senha: req.body.password,
           gender: req.body.genero,
           cargo: req.body.cargo,
-          },
         },
-    )}
-);
+        });
+
+    res.redirect('/');
+});
+
 // TODO: rota de login
 router.get('/login', (req, res) => {
     res.render('login');
