@@ -21,10 +21,10 @@
         <nav>
           <ul class="header-menu">
             <li class="tipo-A">
-              <a href="./cadastro.html">Criar Conta</a>
+              <a href="cadastro">Criar Conta</a>
             </li>
             <li class="tipo-B">
-              <a href="#">Entrar</a>
+              <a href="login">Entrar</a>
             </li>
           </ul>
         </nav>
@@ -106,23 +106,23 @@
     </div>
 
     <div class="comment-modal modal hidden">
-        <aside>
-            <h1>Novo comentário</h1>
-            <div class="textarea-wrapper">
-                <textarea></textarea>
-            </div>
-            <div class="modal-buttons">
-                <button class="cancel">Cancelar</button>
-                <button class="publish">Publicar</button>
-            </div>
-        </aside>
+      <aside>
+        <h1>Novo comentário</h1>
+        <div class="textarea-wrapper">
+          <textarea></textarea>
+        </div>
+        <div class="modal-buttons">
+          <button class="cancel">Cancelar</button>
+          <button class="publish">Publicar</button>
+        </div>
+      </aside>
     </div>
 
     <!-- SimpleMDE -->
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <script>
-        let element = document.querySelector('.comment-modal textarea');
-        let simplemde = new SimpleMDE({ element });
+      let element = document.querySelector('.comment-modal textarea');
+      let simplemde = new SimpleMDE({element});
     </script>
 
   </body>

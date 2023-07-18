@@ -1,15 +1,13 @@
 const express = require('express');
-const { PrismaClient } = require('@prisma/client')
-
-const prisma = new PrismaClient()
-
-
+const { generateAccessToken } = require('../services/token.js');
+const prisma = require('../services/prisma.js');
 
 const router = express.Router();
 
 router.get('/cadastro', (req, res) => {
     res.render('cadastro');
 });
+
 router.post('/cadastro', async (req, res) => {
     const user = await prisma.user.create({
         data: {
@@ -19,32 +17,42 @@ router.post('/cadastro', async (req, res) => {
           gender: req.body.genero,
           cargo: req.body.cargo,
         },
-        });
+    });
 
-    res.redirect('/');
+    res.redirect('/login');
 });
 
-// TODO: rota de login
 router.get('/login', (req, res) => {
     res.render('login');
 });
 
+router.post('/login', async (req, res, next) => {
+    // Verificar se existe um usuário com nome req.body.username e senha
+    // req.body.password
 
-// TODO: rota de recuperação de senha
+    const user = await prisma.user.findFirst({
+        where: {
+            username: req.body.username,
+            senha: req.body.password,
+        }
+    });
 
+    if (!user)
+        return res.render('login', { error: "Usuário ou senha inválidos" });
 
+    const token = generateAccessToken(user.id);
+    res.cookie("token", token);
+    res.redirect('/perfil');
+});
 
 router.get('/recuperacao', (req, res) => {
     res.render('recuperacao');
 });
 
-
-// TODO: rota de perfil
-
-
 router.get('/perfil', (req, res) => {
     res.render('perfil');
 });
+
 module.exports = router; 
 
 

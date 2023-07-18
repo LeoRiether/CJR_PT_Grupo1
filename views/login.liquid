@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <!-- fontawesome cdn for icon -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />  
-  <link rel="stylesheet" href="css/ricardo-login.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- fontawesome cdn for icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
+    <link rel="stylesheet" href="css/ricardo-login.css">
+  </head>
+  <body>
 
     <nav>
       <div class="bubble inline-block">
@@ -34,35 +34,49 @@
     </nav>
 
     <main>
-        <div class="container">
+      <div class="container">
 
-            <!-- início tela-login, formulário  -->
-            <div class="tela-login">
-                <div class="imagem-usuario">
-                    <img src="../img/ph_user-circle-thin.png" width="116">
-                </div>
-                <!-- formulário -->
-                <form action="">
+        {{ error }}
 
-                    <div class="formulario-input">
-                        <span><i class="fas fa-user"></i></span>
-                        <input type="text" placeholder="Login">
-                    </div>
-                    <div class="formulario-input">
-                        <span><i class="fas fa-lock"></i></span> 
-                        <input type="password" placeholder="Senha">
-                    </div>
-                    <div class="esqueceu-senha">
-                        <p><a href="recuperacao">Esqueceu a senha?</a></p>
-                    </div>
-                    <div class="formulario-entrar submit-btn">
-                        <input type="submit" value="Entrar">
-                    </div>
-                </form>
+        <!-- início tela-login, formulário  -->
+        <div class="tela-login">
+          <div class="imagem-usuario">
+            <img src="../img/ph_user-circle-thin.png" width="116">
+          </div>
+          <!-- formulário -->
+          <form method="post">
+
+            <div class="formulario-input">
+              <span>
+                <i class="fas fa-user"></i>
+              </span>
+              <input
+                type="text"
+                name="username"
+                placeholder="Login">
             </div>
-
+            <div class="formulario-input">
+              <span>
+                <i class="fas fa-lock"></i>
+              </span>
+              <input
+                type="password"
+                name="password"
+                placeholder="Senha">
+            </div>
+            <div class="esqueceu-senha">
+              <p>
+                <a href="recuperacao">Esqueceu a senha?</a>
+              </p>
+            </div>
+            <div class="formulario-entrar submit-btn">
+              <input type="submit" value="Entrar">
+            </div>
+          </form>
         </div>
+
+      </div>
     </main>
 
-</body>
+  </body>
 </html>
