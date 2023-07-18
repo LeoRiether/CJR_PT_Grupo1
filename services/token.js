@@ -9,11 +9,15 @@ async function authenticate(req, res, next) {
     const token = req.cookies.token;
     console.log('[token]', token);
 
-    const id = jwt.verify(token, process.env.TOKEN_SECRET).id;
-    const user = await prisma.user.findUnique({
-        where: { id },
-    });
-    req.user = user;
+    try {
+        const id = jwt.verify(token, process.env.TOKEN_SECRET).id;
+        const user = await prisma.user.findUnique({
+            where: { id },
+        });
+        req.user = user;
+    } catch (e) {
+        req.user = null;
+    }
     next();
 }
 

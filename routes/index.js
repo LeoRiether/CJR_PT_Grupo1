@@ -1,5 +1,5 @@
 const express = require('express');
-const { generateAccessToken } = require('../services/token.js');
+const { generateAccessToken, authenticate } = require('../services/token.js');
 const prisma = require('../services/prisma.js');
 
 const router = express.Router();
@@ -9,7 +9,7 @@ router.get('/cadastro', (req, res) => {
 });
 
 router.post('/cadastro', async (req, res) => {
-    const user = await prisma.user.create({
+    await prisma.user.create({
         data: {
           email: req.body.email,
           username: req.body.username,
@@ -51,6 +51,14 @@ router.get('/recuperacao', (req, res) => {
 router.get('/perfil', (req, res) => {
     res.render('perfil');
 });
+
+router.get('/', authenticate, (req, res) => {
+    console.log(req.user);
+    res.render('feed', {
+        user: req.user
+    });
+});
+
 
 module.exports = router; 
 
