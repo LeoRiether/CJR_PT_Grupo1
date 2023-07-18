@@ -4,7 +4,7 @@ const prisma = require('../services/prisma.js');
 
 const router = express.Router();
 
-router.get('/cadastro', (req, res) => {
+router.get('/cadastro', authenticate, (req, res) => {
     res.render('cadastro');
 });
 
@@ -22,7 +22,7 @@ router.post('/cadastro', async (req, res) => {
     res.redirect('/login');
 });
 
-router.get('/login', (req, res) => {
+router.get('/login', authenticate, (req, res) => {
     res.render('login');
 });
 
@@ -44,16 +44,15 @@ router.post('/login', async (req, res, next) => {
     res.redirect('/perfil');
 });
 
-router.get('/recuperacao', (req, res) => {
+router.get('/recuperacao', authenticate, (req, res) => {
     res.render('recuperacao');
 });
 
-router.get('/perfil', (req, res) => {
+router.get('/perfil', authenticate, (req, res) => {
     res.render('perfil');
 });
 
 router.get('/', authenticate, (req, res) => {
-    console.log(req.user);
     res.render('feed', {
         user: req.user
     });
