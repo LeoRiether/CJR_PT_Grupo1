@@ -29,7 +29,6 @@ router.get('/login', (req, res) => {
 router.post('/login', async (req, res, next) => {
     // Verificar se existe um usuário com nome req.body.username e senha
     // req.body.password
-
     const user = await prisma.user.findFirst({
         where: {
             username: req.body.username,

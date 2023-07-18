@@ -1,11 +1,13 @@
 const express = require('express');
+const { authenticate } = require('../services/token.js');
 
 const router = express.Router();
 
 // dict
-router.get('/', (req, res) => {
+router.get('/', authenticate, (req, res) => {
+    console.log(req.user);
     res.render('feed', {
-        nome: 'Leonardo'
+        user: req.user
     });
 });
 
