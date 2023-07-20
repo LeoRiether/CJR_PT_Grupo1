@@ -61,6 +61,33 @@ router.get('/', authenticate, (req, res) => {
 
 module.exports = router; 
 
+// usuario fazendo publicacaoes
+router.post('/perfil', async (req, res) => {
+    await prisma.post.create({
+        data: {
+            user_id:  Int,  
+            content:  String,   
+            updated_at: DateTime,  
+            created_at: DateTime,  
+          
+        },
+    });
 
+    res.redirect('/feed');
+});
+// usuario edita publicacao
+router.patch('/perfil', async (req, res) => {
+    await prisma.post.updated_at({
+        data: {
+            user_id:  Int,  
+            content:  String,   
+            updated_at: DateTime,  
+            created_at: DateTime,  
+          
+        },
+    });
+
+    res.redirect('/feed');
+});
 
 
