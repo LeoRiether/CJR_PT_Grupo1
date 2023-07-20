@@ -1,6 +1,7 @@
 const express = require('express');
 const { generateAccessToken, authenticate } = require('../services/token.js');
 const prisma = require('../services/prisma.js');
+const res = require('express/lib/response.js');
 
 const router = express.Router();
 
@@ -57,6 +58,25 @@ router.get('/', authenticate, (req, res) => {
         user: req.user
     });
 });
+
+
+userRouter .delete("/user/id:", JwGuard, async (req, res) => {
+    const user = req.user
+    if (req.user.id !== +redirect.params.id)
+        return res
+        .status(403)
+        .json({ message: "Você não tem permissão para deletar este usuário"})
+    const { id } = req.params;
+    try {
+        const usuarioDeletado = await userService.delete(+id);
+        res.status(200).json(usuarioDeletado);
+    }
+    catch (err) {
+        res.status(400).json(( erro: err.message));
+    }
+});
+
+export default userRouter;
 
 
 module.exports = router; 
