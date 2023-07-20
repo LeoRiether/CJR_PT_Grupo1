@@ -40,78 +40,32 @@
           </button>
       </div>
 
-      <div class="box-feed">
-        <div class="box-header Flex">
-          <img
-            class="imagem"
-            src="./img/usuario.png"
-            alt="imagem de perfil">
-          <p>{{ user.username }} .
-            <span style="color: #676D75">
-              17 de mar</span>
+      {% if posts.length == 0 %}
+          <p style="color: white; text-align: center;">
+              Não há nenhum post aqui ainda, seja o primeiro a postar!
           </p>
-        </div>
-        <div class="texto">
-          <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin.</p>
-        </div>
-        <div class="comentario">
-          <img src="./img/comentario_18x18.png">
-        </div>
-      </div>
-      <div class="box-feed">
-        <div class="box-header Flex">
-          <img
-            class="imagem"
-            src="./img/usuario.png"
-            alt="imagem de perfil">
-          <p>{{ user.username }} .
-            <span style="color: #676D75">
-              17 de mar</span>
-          </p>
-        </div>
-        <div class="texto">
-          <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin.</p>
-        </div>
-        <div class="comentario">
-          <img src="./img/comentario_18x18.png">
-        </div>
-      </div>
-      <div class="box-feed">
-        <div class="box-header Flex">
-          <img
-            class="imagem"
-            src="./img/usuario.png"
-            alt="imagem de perfil">
-          <p>{{ user.username }} .
-            <span style="color: #676D75">
-              17 de mar</span>
-          </p>
-        </div>
-        <div class="texto">
-          <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin.</p>
-        </div>
-        <div class="comentario">
-          <img src="./img/comentario_18x18.png">
-        </div>
-      </div>
-      <div class="box-feed">
-        <div class="box-header Flex">
-          <img
-            class="imagem"
-            src="./img/usuario.png"
-            alt="imagem de perfil">
-          <p>{{ user.username }} .
-            <span style="color: #676D75">
-              17 de mar</span>
-          </p>
-        </div>
-        <div class="texto">
-          <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin.</p>
-        </div>
-        <div class="comentario">
-          <img src="./img/comentario_18x18.png">
-        </div>
-      </div>
+      {% endif %}
+
+      {% for post in posts %}
+          <div class="box-feed" data-post-id="{{ post.id }}">
+            <div class="box-header Flex">
+              <img
+                class="imagem"
+                src="./img/usuario.png"
+                alt="imagem de perfil">
+              <p>{{ post.user.username }} .
+                <span style="color: #676D75">
+                  17 de mar</span>
+              </p>
+            </div>
+            <div class="texto">
+                <p>{{ post.content }}</p>
+            </div>
+            <div class="comentario">
+              <img src="./img/comentario_18x18.png">
+            </div>
+          </div>
+      {% endfor %}
     </div>
 
     <div class="comment-modal modal hidden" >
@@ -123,7 +77,11 @@
         </div>
         <div class="modal-buttons">
           <button class="cancel bg-transparent">Cancelar</button>
-          <button class="publish rounded bg-green">Publicar</button>
+          <button
+              class="publish rounded bg-green"
+              onclick="publishPost()">
+              Publicar
+          </button>
         </div>
       </aside>
     </div>
@@ -136,6 +94,20 @@
 
       function toggleCommentModal() {
           document.querySelector('.comment-modal').classList.toggle('hidden');
+      }
+
+      async function publishPost() {
+          let content = simplemde.value();
+
+          let response = await fetch('/post', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ content })
+          })
+
+          response = await response.json();
+
+          window.location.reload();
       }
     </script>
 

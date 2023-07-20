@@ -9,10 +9,12 @@
 <body>
     <nav> 
         <div class="bubble inline-block">
-        <img
-          class="cjr-logo"
-          src="img/cjr.png"
-          alt="Logo da CJR">
+            <a href="/">
+                <img
+                  class="cjr-logo"
+                  src="img/cjr.png"
+                  alt="Logo da CJR">
+            </a>
         </div>
 
         <div style="flex-grow: 1;"></div>
@@ -64,35 +66,21 @@
                
             <hr size="2" width="100%" color="#D9D9D9" noshade>
             <p class="publicacao"><strong>Publicações</strong></p>
-            <div class="twittes">
-                <div class="inline">
-                    <img class="perfilpost" src="../img/foto-perfil.png" alt="Imagem de perfil">
-                    <div class="nome_data">
-                        <a href="perfil"><button style="background:#222E50; border-radius: 16px; padding: 12px; cursor: pointer; color:#FFFF; border: none; font-size: 16px;">Joazin gamer</button> </a>
-                        <p class="data">. 17 de mar</p>
-                    </div>
-                    <div class="escrito">
-                        <p class="escrito_" style="color: #FFFFFF;">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin</p>
-                    </div>
-                </div>
-            </div>
-            <div class="espaco"> </div>
-            <div class="twittes">
-                <div class="inline">
-                    <img class="perfilpost" src="../img/foto-perfil.png" alt="Imagem de perfil">
-                    <div class="nome_data">
-                        <a href="perfil"><button style="background:#222E50; border-radius: 16px; padding: 12px; cursor: pointer; color:#FFFF; border: none; font-size: 16px;">Joazin gamer</button> </a>
-                        <p class="data">. 17 de mar</p>
-                    </div>
-                    <div class="escrito">
-                        <p class="escrito_" style="color: #FFFFFF;">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
-                    </div>
-                    <div class="img_postada">
-                        <img  class="img_postada_" src="../img/sangue 2.png" alt="Imagem de doar sangue">
+            {% for post in posts %}
+                <div class="twittes">
+                    <div class="inline">
+                        <img class="perfilpost" src="../img/foto-perfil.png" alt="Imagem de perfil">
+                        <div class="nome_data">
+                            <a href="perfil"><button style="background:#222E50; border-radius: 16px; padding: 12px; cursor: pointer; color:#FFFF; border: none; font-size: 16px;">{{ user.username }}</button> </a>
+                            <p class="data">. 17 de mar</p>
+                        </div>
+                        <div class="escrito">
+                            <p class="escrito_" style="color: #FFFFFF;">{{ post.content }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="espaco"> </div>
+                <div class="espaco"> </div>
+            {% endfor %}
     </main>
 </body>
 </html>

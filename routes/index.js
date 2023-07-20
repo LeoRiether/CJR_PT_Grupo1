@@ -1,7 +1,6 @@
 const express = require('express');
 const { generateAccessToken, authenticate } = require('../services/token.js');
 const prisma = require('../services/prisma.js');
-const res = require('express/lib/response.js');
 
 const router = express.Router();
 
@@ -12,11 +11,11 @@ router.get('/cadastro', authenticate, (req, res) => {
 router.post('/cadastro', async (req, res) => {
     await prisma.user.create({
         data: {
-          email: req.body.email,
-          username: req.body.username,
-          senha: req.body.password,
-          gender: req.body.genero,
-          cargo: req.body.cargo,
+            email: req.body.email,
+            username: req.body.username,
+            senha: req.body.password,
+            gender: req.body.genero,
+            cargo: req.body.cargo,
         },
     });
 
@@ -49,65 +48,68 @@ router.get('/recuperacao', authenticate, (req, res) => {
     res.render('recuperacao');
 });
 
-router.get('/perfil', authenticate, (req, res) => {
-    res.render('perfil');
+router.get('/perfil', authenticate, async (req, res) => {
+    if (!req.user)
+        return res.redirect('/login');
+
+    const posts = await prisma.post.findMany({
+        where: { user_id: req.user.id },
+        orderBy: [{
+            created_at: 'desc'
+        }],
+    })
+
+    res.render('perfil', {
+        user: req.user,
+        posts
+    });
 });
 
-router.get('/', authenticate, (req, res) => {
+router.get('/', authenticate, async (req, res) => {
+    const posts = await prisma.post.findMany({
+        orderBy: [{
+            created_at: 'desc'
+        }],
+        include: {
+            user: true,
+        },
+    });
+
     res.render('feed', {
+        posts,
         user: req.user
     });
 });
 
-
-router.delete("/user/id:", authenticate, async (req, res) => {
-    const user = req.user
-    if (req.user.id !== +redirect.params.id)
-        return res
-        .status(403)
-        .json({ message: "Você não tem permissão para deletar este usuário"})
-    const { id } = req.params;
-    try {
-        const usuarioDeletado = await userService.delete(+id);
-        res.status(200).json(usuarioDeletado);
-    }
-    catch (err) {
-        res.status(400).json(( erro: err.message));
-    }
-});
-
-export default userRouter;
-
-
-module.exports = router; 
-
 // usuario fazendo publicacaoes
-router.post('/perfil', async (req, res) => {
+router.post('/post', authenticate, async (req, res) => {
+    if (!req.user) {
+        return res.status(401).json({ error: "Usuário não autenticado" });
+    }
+
     await prisma.post.create({
         data: {
-            user_id: req.body.userid,  
-            content:  req.body.content,   
-            updated_at: req.body.atualizado,  
-            created_at: req.body.data,    
-          
+            user_id: req.user.id,
+            content: req.body.content,
         },
     });
 
-    res.redirect('/feed');
+    res.json({ ok: true });
 });
+
 // usuario edita publicacao
-router.patch('/perfil', async (req, res) => {
-    await prisma.post.updated_at({
+router.patch('/post', authenticate, async (req, res) => {
+    await prisma.post.update({
         data: {
-            user_id: req.body.userid,  
-            content:  req.body.content,   
-            updated_at: req.body.atualizado,  
-            created_at: req.body.data,  
-          
+            id: req.body.id,
+            user_id: req.user.id,
+            content: req.body.content,
+            updated_at: req.body.atualizado,
+            created_at: req.body.data,
         },
     });
 
-    res.redirect('/feed');
+    res.redirect('/');
 });
 
 // Adm apaga uma conta
@@ -118,8 +120,5 @@ router.delete('/', authenticate, (req, res) => {
 });
 // usuario exclua uma publicação 
 
-router.delete('/routes/index.js/:id', (req, res) => {
-    const postId = parseInt(req.params.id);
-    posts = posts.filter((post)) => post.id !== postId);
-    res.sendStatus(204);
-}); 
+module.exports = router;
+
