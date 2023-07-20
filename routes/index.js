@@ -1,6 +1,7 @@
 const express = require('express');
 const { generateAccessToken, authenticate } = require('../services/token.js');
 const prisma = require('../services/prisma.js');
+const res = require('express/lib/response.js');
 
 const router = express.Router();
 
@@ -59,6 +60,25 @@ router.get('/', authenticate, (req, res) => {
 });
 
 
+router.delete("/user/id:", authenticate, async (req, res) => {
+    const user = req.user
+    if (req.user.id !== +redirect.params.id)
+        return res
+        .status(403)
+        .json({ message: "Você não tem permissão para deletar este usuário"})
+    const { id } = req.params;
+    try {
+        const usuarioDeletado = await userService.delete(+id);
+        res.status(200).json(usuarioDeletado);
+    }
+    catch (err) {
+        res.status(400).json(( erro: err.message));
+    }
+});
+
+export default userRouter;
+
+
 module.exports = router; 
 
 // usuario fazendo publicacaoes
@@ -90,10 +110,19 @@ router.patch('/perfil', async (req, res) => {
     res.redirect('/feed');
 });
 
+<<<<<<< HEAD
 // Adm apaga uma conta
 router.delete('/', authenticate, (req, res) => {
     user: req.admin
     delete id
     res.render('feed');
 });
+=======
+// usuario exclua uma publicação 
+>>>>>>> e3deeee71679a943692a2cd62e46391703f4612b
 
+router.delete('/routes/index.js/:id', (req, res) => {
+    const postId = parseInt(req.params.id);
+    posts = posts.filter((post)) => post.id !== postId);
+    res.sendStatus(204);
+}); 
