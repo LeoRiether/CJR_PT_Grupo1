@@ -110,16 +110,13 @@ router.patch('/perfil', async (req, res) => {
     res.redirect('/feed');
 });
 
-<<<<<<< HEAD
 // Adm apaga uma conta
 router.delete('/', authenticate, (req, res) => {
     user: req.admin
     delete id
     res.render('feed');
 });
-=======
 // usuario exclua uma publicação 
->>>>>>> e3deeee71679a943692a2cd62e46391703f4612b
 
 router.delete('/routes/index.js/:id', (req, res) => {
     const postId = parseInt(req.params.id);
