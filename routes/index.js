@@ -60,7 +60,7 @@ router.get('/', authenticate, (req, res) => {
 });
 
 
-userRouter .delete("/user/id:", JwGuard, async (req, res) => {
+router.delete("/user/id:", authenticate, async (req, res) => {
     const user = req.user
     if (req.user.id !== +redirect.params.id)
         return res
@@ -110,4 +110,10 @@ router.patch('/perfil', async (req, res) => {
     res.redirect('/feed');
 });
 
+// usuario exclua uma publicação 
 
+router.delete('/routes/index.js/:id', (req, res) => {
+    const postId = parseInt(req.params.id);
+    posts = posts.filter((post)) => post.id !== postId);
+    res.sendStatus(204);
+}); 
