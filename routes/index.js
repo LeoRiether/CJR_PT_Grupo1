@@ -65,10 +65,10 @@ module.exports = router;
 router.post('/perfil', async (req, res) => {
     await prisma.post.create({
         data: {
-            user_id:  Int,  
-            content:  String,   
-            updated_at: DateTime,  
-            created_at: DateTime,  
+            user_id: req.body.userid,  
+            content:  req.body.content,   
+            updated_at: req.body.atualizado,  
+            created_at: req.body.data,    
           
         },
     });
@@ -79,10 +79,10 @@ router.post('/perfil', async (req, res) => {
 router.patch('/perfil', async (req, res) => {
     await prisma.post.updated_at({
         data: {
-            user_id:  Int,  
-            content:  String,   
-            updated_at: DateTime,  
-            created_at: DateTime,  
+            user_id: req.body.userid,  
+            content:  req.body.content,   
+            updated_at: req.body.atualizado,  
+            created_at: req.body.data,  
           
         },
     });
