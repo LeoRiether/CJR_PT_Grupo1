@@ -90,4 +90,10 @@ router.patch('/perfil', async (req, res) => {
     res.redirect('/feed');
 });
 
+// Adm apaga uma conta
+router.delete('/', authenticate, (req, res) => {
+    user: req.admin
+    delete id
+    res.render('feed');
+});
 
