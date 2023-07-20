@@ -204,16 +204,25 @@ body{     /* fundo */
   .feed {
     color: red;
   }
-  
+
 .modal {
     display: grid;
     position: fixed; /* posição fixa independentemente do scroll! */
     width: 100vw;
     height: 100vh;
+    top: 0;
+}
+
+.modal .background {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
     background: rgba(0, 0, 0, 0.5);
 }
 
 .modal aside {
+    z-index: 1;
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -275,7 +284,6 @@ body{     /* fundo */
 }
 
 .modal .modal-buttons button {
-    background: transparent;
     padding: 1em;
     color: white;
     border: none;
@@ -283,12 +291,27 @@ body{     /* fundo */
     cursor: pointer;
 }
 
-.modal .modal-buttons .publish {
-    border-radius: 16px;
+.hidden {
+    display: none;
+}
+
+.bg-green {
     background: #8BC34A;
 }
 
-.hidden {
-    display: none;
+.bg-transparent {
+    background: transparent;
+}
+
+.rounded {
+    border-radius: 16px;
+}
+
+.new-post-button {
+    border: none;
+    padding: 0.75rem;
+    font-size: 1em;
+    color: #111e3e;
+    cursor: pointer;
 }
 

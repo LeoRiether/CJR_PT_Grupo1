@@ -31,6 +31,15 @@
       </div>
     </header>
     <div class="container-feed">
+
+      <div>
+          <button
+              class="new-post-button rounded bg-green"
+              onclick="toggleCommentModal()">
+              Criar publicação
+          </button>
+      </div>
+
       <div class="box-feed">
         <div class="box-header Flex">
           <img
@@ -105,15 +114,16 @@
       </div>
     </div>
 
-    <div class="comment-modal modal hidden">
+    <div class="comment-modal modal hidden" >
+      <div class="background" onclick="toggleCommentModal()"></div>
       <aside>
         <h1>Novo comentário</h1>
         <div class="textarea-wrapper">
           <textarea></textarea>
         </div>
         <div class="modal-buttons">
-          <button class="cancel">Cancelar</button>
-          <button class="publish">Publicar</button>
+          <button class="cancel bg-transparent">Cancelar</button>
+          <button class="publish rounded bg-green">Publicar</button>
         </div>
       </aside>
     </div>
@@ -123,6 +133,10 @@
     <script>
       let element = document.querySelector('.comment-modal textarea');
       let simplemde = new SimpleMDE({element});
+
+      function toggleCommentModal() {
+          document.querySelector('.comment-modal').classList.toggle('hidden');
+      }
     </script>
 
   </body>
