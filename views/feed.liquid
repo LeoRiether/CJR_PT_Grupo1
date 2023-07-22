@@ -32,13 +32,15 @@
     </header>
     <div class="container-feed">
 
-      <div>
-          <button
-              class="new-post-button rounded bg-green"
-              onclick="toggleCommentModal()">
-              Criar publicação
-          </button>
-      </div>
+      {% if user %}
+          <div>
+              <button
+                      class="new-post-button rounded bg-green"
+                      onclick="toggleCommentModal()">
+                  Criar publicação
+              </button>
+          </div>
+      {% endif %}
 
       {% if posts.length == 0 %}
           <p style="color: white; text-align: center;">
