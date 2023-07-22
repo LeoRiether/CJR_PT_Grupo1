@@ -15,7 +15,7 @@
   <body>
     <header class="header-bg">
       <div class="header">
-        <a href="./">
+        <a href="/">
           <img src="img/Logo.png" alt="CJR">
         </a>
         <nav>
@@ -47,26 +47,29 @@
       {% endif %}
 
       {% for post in posts %}
-          <div class="box-feed" data-post-id="{{ post.id }}">
-            <div class="box-header Flex">
-              <img
-                class="imagem"
-                src="./img/usuario.png"
-                alt="imagem de perfil">
-              <p>{{ post.user.username }} .
-                <span style="color: #676D75">
-                  17 de mar</span>
-              </p>
-            </div>
-            <div class="texto">
-                <p>{{ post.content }}</p>
-            </div>
-            <div class="comentario">
-                <a href="/comments/{{ post.id }}">
-                    <img src="./img/comentario_18x18.png">
-                </a>
-            </div>
-          </div>
+        <div class="box-feed">
+            <article class="flex flex-row align-start">
+                <div class="box-header Flex">
+                    <img
+                            class="imagem"
+                            src="/img/usuario.png"
+                            alt="imagem de perfil">
+                </div>
+                <div class="texto">
+                    <p class="align-with-pfp">{{ post.user.username }} .
+                    <span style="color: #676D75">
+                        17 de mar</span>
+                    </p>
+
+                    <p>{{ post.content | markdown-it}}</p>
+                    <div class="comentario">
+                        <a href="/comments/{{ post.id }}">
+                            <img src="./img/comentario_18x18.png">
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
       {% endfor %}
     </div>
 
