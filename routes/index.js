@@ -8,7 +8,8 @@ router.get('/cadastro', authenticate, (req, res) => {
     res.render('cadastro');
 });
 
-router.post('/cadastro', async (req, res) => {
+router.post('/cadastro', async (req, res, next) => {
+    try {
         await prisma.user.create({
             data: {
                 email: req.body.email,
@@ -16,10 +17,30 @@ router.post('/cadastro', async (req, res) => {
                 senha: req.body.password,
                 gender: req.body.genero,
                 cargo: req.body.cargo,
+                profilePicture: req.body.pfpPath,
             },
         });
+    } catch (e) {
+        return next(e);
+    }
 
-        res.redirect('/login');
+    res.redirect('/login');
+});
+
+router.post('/cadastro/upload-pfp', async (req, res, next) => {
+    try {
+        const hash = req.files.pfp.md5;
+        const ext = req.files.pfp.name.split('.').pop();
+        const url = `img/foto-perfil/${hash}.${ext}`;
+        req.files.pfp.mv(`${__dirname}/../static/${url}`, (error) => {
+            if (error)
+                return res.status(500).json({ ok: false, error });
+
+            res.json({ ok: true, url: '/' + url });
+        });
+    } catch(e) {
+        return next(e);
+    }
 });
 
 router.get('/login', authenticate, (req, res) => {

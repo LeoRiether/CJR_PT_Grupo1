@@ -5,6 +5,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const createError = require('http-errors');
 const markdownIt = require('markdown-it')();
+const fileUpload = require('express-fileupload');
 
 const router = require('./routes/index.js');
 
@@ -22,6 +23,7 @@ app.set('view engine', 'liquid');
 // Middleware
 app.use(express.static('static'));
 app.use(logger('dev'));
+app.use(fileUpload());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());

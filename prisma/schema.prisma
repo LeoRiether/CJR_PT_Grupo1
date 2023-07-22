@@ -22,6 +22,7 @@ model User {
     gender String @db.Char(5)
     email String @unique
     cargo String
+    profilePicture String @default("/img/foto-perfil/default.png")
     admin Boolean? @default(false)
     createdAt DateTime @default(now())
 

@@ -34,11 +34,11 @@
         </div>
 
         <div class="fotoperfil">
-            <a href="perfil"><img class="fotoperfil" src="../img/foto-perfil.png" alt="Foto de perfil" ></a>
+            <a href="perfil"><img class="fotoperfil" src="{{ user.profilePicture }}" alt="Foto de perfil" ></a>
         </div>
 
         <div class="logout">
-            <a href="logout" ><img class="logout" src="../img/log-out.png" alt="Imagem de logout" > </a>
+            <a href="logout" ><img class="logout" src="/img/log-out.png" alt="Imagem de logout" > </a>
          </div>
     </nav>
     <main class="two-columns">
@@ -49,15 +49,15 @@
                 
             </div>
             <div class="perfil">
-                <img  class= "foto" src="../img/foto-perfil.png" alt="Imagem de perfil" >  
-                <p class="nome"><strong>{{nome}}</strong></p>
+                <img  class= "foto" src="{{ user.profilePicture }}" alt="Imagem de perfil" >  
+                <p class="nome"><strong>{{ user.username }}</strong></p>
                 <div class="lugar_">
                     <img class = "lugar" style="vertical-align: middle;" src="../img/Vector.png" alt="Imagem de predio">
                     <p class="lugar2">Acessora</p>
                 </div>
                 <div class="email_">
                     <img class="email" style="vertical-align: middle;" src="../img/eva_email-outline.png" alt="Imagem email">
-                    <a class= "email2" href="mailto: {{email}}" >{{email}}</a>
+                    <a class= "email2" href="mailto: {{ user.email }}" >{{ user.email }}</a>
                 </div>
             </div>
             <div class="baixo_posts">
@@ -69,7 +69,7 @@
             {% for post in posts %}
                 <div class="twittes">
                     <div class="inline">
-                        <img class="perfilpost" src="../img/foto-perfil.png" alt="Imagem de perfil">
+                        <img class="perfilpost" src="{{ user.profilePicture }}" alt="Imagem de perfil">
                         <div class="nome_data">
                             <a href="perfil"><button style="background:#222E50; border-radius: 16px; padding: 12px; cursor: pointer; color:#FFFF; border: none; font-size: 16px;">{{ user.username }}</button> </a>
                             <p class="data">. 17 de mar</p>

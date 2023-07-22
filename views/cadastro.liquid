@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Twitter CJR - Cadastro</title>
     <link rel="stylesheet" href="css/leo-cadastro.css">
+    <script src="js/cadastro.js" defer></script>
   </head>
 
   <body>
@@ -43,11 +44,20 @@
 
       <div class="flex-center-y">
         <form method="post" class="register-card">
-          <img
-            class="user-img"
-            src="../img/ph_user-circle-thin.png"
-            width="200"
-            alt="Image representing a generic user">
+            <label style="cursor: pointer;">
+              <img
+                class="user-img"
+                src="../img/ph_user-circle-thin.png"
+                width="200"
+                alt="Image representing a generic user">
+              <input id="profilePicture"
+                     name="profilePicture"
+                     type="file"
+                     accept="image/*"
+                     style="display: none;">
+            </label>
+            <input id="pfpPath" name="pfpPath" type="text" style="display: none;">
+
           <input
             type="text"
             name="username"

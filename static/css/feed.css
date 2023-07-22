@@ -167,6 +167,10 @@ a {
     margin-top: 10px;
 }
 
+.texto img {
+    max-width: calc(100% - 3em);
+}
+
 .Flex {
     /* border: 1px solid #666; */
     display: flex;
@@ -331,4 +335,3 @@ padding: 25px;
     color: white;
     font-size: 1.5em;
 }
-
