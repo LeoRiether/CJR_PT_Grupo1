@@ -9,17 +9,17 @@ router.get('/cadastro', authenticate, (req, res) => {
 });
 
 router.post('/cadastro', async (req, res) => {
-    await prisma.user.create({
-        data: {
-            email: req.body.email,
-            username: req.body.username,
-            senha: req.body.password,
-            gender: req.body.genero,
-            cargo: req.body.cargo,
-        },
-    });
+        await prisma.user.create({
+            data: {
+                email: req.body.email,
+                username: req.body.username,
+                senha: req.body.password,
+                gender: req.body.genero,
+                cargo: req.body.cargo,
+            },
+        });
 
-    res.redirect('/login');
+        res.redirect('/login');
 });
 
 router.get('/login', authenticate, (req, res) => {
@@ -109,15 +109,60 @@ router.patch('/post', authenticate, async (req, res) => {
         },
     });
 
-    res.redirect('/');
+    res.json({ ok: true });
+});
+
+router.get('/comments/:id', authenticate, async (req, res) => {
+    const post_promise = prisma.post.findUnique({
+        where: {
+            id: parseInt(req.params.id),
+        },
+        include: {
+            user: true,
+        }
+    });
+
+    const comments_promise = prisma.comment.findMany({
+        where: {
+            post_id: parseInt(req.params.id),
+        },
+        include: {
+            user: true,
+        },
+    });
+
+    const [post, comments] = await Promise.all([post_promise, comments_promise]);
+
+    res.render('comments', {
+        user: req.user,
+        post,
+        comments,
+    });
+});
+
+router.post('/comments/:id', authenticate, async (req, res) => {
+    if (!req.user) {
+        return res.status(401).json({ error: "Usuário não autenticado" });
+    }
+
+    await prisma.comment.create({
+        data: {
+            user_id: req.user.id,
+            post_id: parseInt(req.params.id),
+            content: req.body.content,
+        },
+    });
+
+    res.json({ ok: true });
 });
 
 // Adm apaga uma conta
-router.delete('/', authenticate, (req, res) => {
+router.delete('/account', authenticate, (req, res) => {
     user: req.admin
     delete id
     res.render('feed');
 });
+
 // usuario exclua uma publicação 
 
 module.exports = router;

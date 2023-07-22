@@ -315,3 +315,6 @@ body{     /* fundo */
     cursor: pointer;
 }
 
+.flex-col {
+    flex-direction: column;
+}

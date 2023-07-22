@@ -6,7 +6,7 @@
     <title>Feed</title>
     <!-- fontawesome cdn for icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
-    <link rel="stylesheet" href="css/feed.css">
+    <link rel="stylesheet" href="/css/feed.css">
 
     <!-- SimpleMDE -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
@@ -16,42 +16,27 @@
     <header class="header-bg">
       <div class="header">
         <a href="./">
-          <img src="img/Logo.png" alt="CJR">
+          <img src="/img/Logo.png" alt="CJR">
         </a>
         <nav>
           <ul class="header-menu">
             <li class="tipo-A">
-              <a href="cadastro">Criar Conta</a>
+              <a href="/cadastro">Criar Conta</a>
             </li>
             <li class="tipo-B">
-              <a href="login">Entrar</a>
+              <a href="/login">Entrar</a>
             </li>
           </ul>
         </nav>
       </div>
     </header>
-    <div class="container-feed">
 
-      <div>
-          <button
-              class="new-post-button rounded bg-green"
-              onclick="toggleCommentModal()">
-              Criar publicação
-          </button>
-      </div>
-
-      {% if posts.length == 0 %}
-          <p style="color: white; text-align: center;">
-              Não há nenhum post aqui ainda, seja o primeiro a postar!
-          </p>
-      {% endif %}
-
-      {% for post in posts %}
-          <div class="box-feed" data-post-id="{{ post.id }}">
+    <div id="post" class="container-feed" data-post-id="{{ post.id }}">
+          <div class="box-feed">
             <div class="box-header Flex">
               <img
                 class="imagem"
-                src="./img/usuario.png"
+                src="/img/usuario.png"
                 alt="imagem de perfil">
               <p>{{ post.user.username }} .
                 <span style="color: #676D75">
@@ -61,19 +46,40 @@
             <div class="texto">
                 <p>{{ post.content }}</p>
             </div>
-            <div class="comentario">
-                <a href="/comments/{{ post.id }}">
-                    <img src="./img/comentario_18x18.png">
-                </a>
-            </div>
           </div>
-      {% endfor %}
+
+          <div class="box-feed">
+              {% for comment in comments %}
+                  <div class="box-header Flex">
+                      <img
+                              class="imagem"
+                              src="/img/usuario.png"
+                              alt="imagem de perfil">
+                      <p>{{ comment.user.username }} .
+                      <span style="color: #676D75">
+                          17 de mar</span>
+                      </p>
+                  </div>
+                  <div class="texto">
+                      <p>{{ comment.content }}</p>
+                  </div>
+              {% endfor %}
+          </div>
+
+          <div class="Flex flex-col">
+              <button
+                      class="new-post-button bg-green rounded submit-btn"
+                      onclick="toggleCommentModal()">
+                  <i class="fas fa-comment"></i>
+                  Novo comentário
+              </button>
+          </div>
     </div>
 
     <div class="comment-modal modal hidden" >
       <div class="background" onclick="toggleCommentModal()"></div>
       <aside>
-        <h1>Novo post</h1>
+        <h1>Novo comentário</h1>
         <div class="textarea-wrapper">
           <textarea></textarea>
         </div>
@@ -81,7 +87,7 @@
           <button class="cancel bg-transparent">Cancelar</button>
           <button
               class="publish rounded bg-green"
-              onclick="publishPost()">
+              onclick="publishComment()">
               Publicar
           </button>
         </div>
@@ -98,10 +104,11 @@
           document.querySelector('.comment-modal').classList.toggle('hidden');
       }
 
-      async function publishPost() {
-          let content = simplemde.value();
+      async function publishComment() {
+          const content = simplemde.value();
+          const post_id = document.querySelector('#post').dataset.postId;
 
-          let response = await fetch('/post', {
+          let response = await fetch(`/comments/${post_id}`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ content })
