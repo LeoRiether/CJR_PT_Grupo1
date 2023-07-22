@@ -4,6 +4,7 @@ const express = require('express');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const createError = require('http-errors');
+const markdownIt = require('markdown-it')();
 
 const router = require('./routes/index.js');
 
@@ -12,7 +13,9 @@ const port = 3000;
 
 // Set liquidjs as the default template engine
 let { Liquid } = require('liquidjs');
-app.engine('liquid', new Liquid().express());
+let liquid = new Liquid();
+liquid.registerFilter('markdown-it', c => markdownIt.render(c));
+app.engine('liquid', liquid.express());
 app.set('views', './views');
 app.set('view engine', 'liquid');
 
