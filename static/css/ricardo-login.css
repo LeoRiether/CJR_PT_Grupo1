@@ -67,6 +67,7 @@ a {
     background: #222e50;
     padding: 30px 50px;
     border-radius: 10px;
+    box-shadow: 0.5em 0.5em 1.5em 0px #0000006b;
 }
 
 .imagem-usuario {

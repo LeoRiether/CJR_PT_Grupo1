@@ -154,8 +154,9 @@ a {
     max-width: 646px;
     margin: 0 auto;
     padding: 6px;
-    border-left: 1px solid #7e7e7e;
-    border-right: 1px solid #7e7e7e;
+    /* border-left: 1px solid #7e7e7e; */
+    /* border-right: 1px solid #7e7e7e; */
+    box-shadow: 0 0 2em 0px #0000006b;
 }
 
 .box-feed{
@@ -322,6 +323,12 @@ padding: 25px;
     margin-top: 30px;
 }
 
-.spacer {
-    margin-top: 1em;
+.back-arrow {
+    padding: .5em;
+    cursor: pointer;
 }
+.back-arrow:before {
+    color: white;
+    font-size: 1.5em;
+}
+

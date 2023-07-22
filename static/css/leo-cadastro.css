@@ -76,6 +76,7 @@ input {
     padding: 2em 4em;
     border-radius: 16px;
     background: #222E50;
+    box-shadow: 0.5em 0.5em 1.5em 0px #0000003d;
 }
 
 .register-card input, .register-card img, .register-card p {
