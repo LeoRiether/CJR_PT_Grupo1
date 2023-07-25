@@ -185,6 +185,66 @@ router.delete('/account', authenticate, (req, res) => {
 });
 
 // usuario exclua uma publicação 
-
 module.exports = router;
+router.delete('/post/:id', authenticate, async (req, res) => {
+    const postId = parseInt(req.params.id);
+
+try {
+    const post = await prisma.post.findFirst({
+        where: {
+            id: postId,
+            user_id: req.user.id,
+        },
+    });
+
+    if (!post) {
+        return res.status(404).json({ error: "Publicação não encontrada ou você não tem permissão para excluí-la." });
+    }
+
+
+    await prisma.post.delete({
+        where: {
+            id: postId,
+        },
+    });
+
+    res.json({ ok: true });
+} catch (error) {
+    return res.status(500).json({ error: "Ocorreu um erro ao excluir a publicação." });
+}
+});
+
+// usuario altera a senha
+router.post('/alterar-senha', authenticate, async (req, res) => {
+    const userId = req.user.id;
+    const { senhaAtual, novaSenha } = req.body;
+
+    try {
+        // Verifique se a senha atual fornecida corresponde à senha do usuário no banco de dados
+        const user = await prisma.user.findFirst({
+            where: {
+                id: userId,
+                senha: senhaAtual,
+            },
+        });
+
+        if (!user) {
+            return res.status(401).json({ error: "Senha atual incorreta" });
+        }
+
+        // Atualize a senha do usuário com a nova senha fornecida
+        await prisma.user.update({
+            where: {
+                id: userId,
+            },
+            data: {
+                senha: novaSenha,
+            },
+        });
+
+        res.json({ ok: true });
+    } catch (error) {
+        return res.status(500).json({ error: "Erro ao alterar a senha." });
+    }
+});
 
